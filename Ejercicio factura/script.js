@@ -1,8 +1,7 @@
 var nombreApellido = document.getElementById("nombreApellido");
-var telefono = parseInt(document.getElementById("telefono"));
+var telefono = document.getElementById("telefono");
 var email = document.getElementById("email");
-const f = new Date();
-var fecha = f.getUTCDate;
+var fechaHoy = document.getElementById("fecha");
 
 var mango = "Mango x 1kg";
 var precioMango = parseInt(800);
@@ -20,12 +19,30 @@ var pina = "Piña x 1kg";
 var precioPina = parseInt(900);
 var cantidadPina = document.getElementById("cantidadPina");
 
+var mostrarTotal = document.getElementById("mostratTotal");
+var datosCliente = document.getElementById("datosCliente");
+
 var boton = document.getElementById("generar");
 
 function calcular() {
     var total;
 
+    var totalMango = cantidadMango.value * precioMango;
+    var totalBanano = cantidadBanano.value * precioBanano;
+    var totalPera = cantidadPera.value * precioPera;
+    var totalPina = cantidadPina.value * precioPina;
+    total = totalMango + totalBanano + totalPera + totalPina;
 
+    mostrarTotal.value = "Total a pagar de: " + total + ". Sus mangos costaron: " + totalMango + ", y sus bananos costaron: " + totalBanano + ", sus peras costaron: " + totalPera + ", y sus piñas le costaron: " + totalPina + ".";
+    datosCliente.value = "Gracias " + nombreApellido.value + " por comprar en FrutiMax de la sábana. Su correo es: " + email.value + ". Su teléfono es: " + telefono.value + " y la fecha es: " + fechaHoy.value;
+    cantidadBanano.value = "";
+    cantidadMango.value = "";
+    cantidadPera.value = "";
+    cantidadPina.value = "";
+    nombreApellido.value = "";
+    telefono.value = "";
+    email.value = "";
+    fechaHoy.value = "";
     return total;
 }
 

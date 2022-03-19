@@ -2,51 +2,61 @@ var nombreApellido = document.getElementById("nombreApellido");
 var telefono = document.getElementById("telefono");
 var email = document.getElementById("email");
 var fechaHoy = document.getElementById("fecha");
+var total = document.getElementById("total");
 
-var mango = "Mango x 1kg";
-var precioMango = parseInt(800);
-var cantidadMango = document.getElementById("cantidadMango");
+var arrayNombreProducto = [];
+var arrayCantidad = [];
+var arrayPrecio = [];
+var contador = 0;
 
-var banano = "Banano x 1kg";
-var precioBanano = parseInt(500);
-var cantidadBanano = document.getElementById("cantidadBanano");
+var nombreProducto = document.getElementById("nombreProducto");
+var cantidadProducto = document.getElementById("cantidadProducto");
+var precioProducto = document.getElementById("precioProducto");
 
-var pera = "Pera x 2kg";
-var precioPera = parseInt(1200);
-var cantidadPera = document.getElementById("cantidadPera");
+var anadirProducto = document.getElementById("anadir");
+var generar = document.getElementById("generar");
 
-var pina = "Piña x 1kg";
-var precioPina = parseInt(900);
-var cantidadPina = document.getElementById("cantidadPina");
+var nombreLista = document.getElementById("nombreLista");
+var telefonoLista = document.getElementById("telefonoLista");
+var emailLista = document.getElementById("emailLista");
+var fechaLista = document.getElementById("fechaLista");
 
-var mostrarTotal = document.getElementById("mostratTotal");
-var datosCliente = document.getElementById("datosCliente");
+var nProducto = document.getElementById("nProducto");
 
-var boton = document.getElementById("generar");
+var totalFactura = 0;
 
-function calcular() {
-    var total;
+anadirProducto.addEventListener("click", function() {
 
-    var totalMango = cantidadMango.value * precioMango;
-    var totalBanano = cantidadBanano.value * precioBanano;
-    var totalPera = cantidadPera.value * precioPera;
-    var totalPina = cantidadPina.value * precioPina;
-    total = totalMango + totalBanano + totalPera + totalPina;
+    arrayNombreProducto[contador] = nombreProducto.value;
+    arrayCantidad[contador] = cantidadProducto.value;
+    arrayPrecio[contador] = precioProducto.value;
 
-    mostrarTotal.value = "Total a pagar de: " + total + ". Sus mangos costaron: " + totalMango + ", y sus bananos costaron: " + totalBanano + ", sus peras costaron: " + totalPera + ", y sus piñas le costaron: " + totalPina + ".";
-    datosCliente.value = "Gracias " + nombreApellido.value + " por comprar en FrutiMax de la sábana. Su correo es: " + email.value + ". Su teléfono es: " + telefono.value + " y la fecha es: " + fechaHoy.value;
-    cantidadBanano.value = "";
-    cantidadMango.value = "";
-    cantidadPera.value = "";
-    cantidadPina.value = "";
-    nombreApellido.value = "";
-    telefono.value = "";
-    email.value = "";
-    fechaHoy.value = "";
-    return total;
-}
+    nProducto.value = nProducto.value + "\n" + arrayNombreProducto[contador];
+    nCantidad.value = nCantidad.value + "\n" + arrayCantidad[contador];
+    nPrecio.value = nPrecio.value + "\n" + arrayPrecio[contador];
 
-boton.addEventListener("click", function() {
 
-    calcular();
+    var precio = precioProducto.value;
+    var cantidad = cantidadProducto.value;
+    var totalActual = precio * cantidad;
+    totalFactura = totalActual + totalFactura;
+
+    nombreProducto.value = "";
+    cantidadProducto.value = "";
+    precioProducto.value = "";
+
+
+    contador++;
+
+
+});
+
+generar.addEventListener("click", function() {
+
+    nombreLista.value = nombreApellido.value;
+    telefonoLista.value = telefono.value;
+    emailLista.value = email.value;
+    fechaLista.value = fechaHoy.value;
+    total.value = totalFactura;
+
 });

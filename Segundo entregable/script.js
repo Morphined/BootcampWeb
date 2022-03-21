@@ -19,6 +19,7 @@ var teclaMultiplicar = document.getElementById("botonMultiplicar");
 var teclaDividir = document.getElementById("botonDividir");
 var teclaIgual = document.getElementById("teclaIgual");
 var historialPantalla = document.getElementById("historialCalculadora");
+var historialOperaciones = document.getElementById("historialOperaciones");
 var contador = 0;
 var primerDigito;
 var segundoDigito;
@@ -140,6 +141,7 @@ teclaLimpiar.addEventListener("click", function() {
     auxResta = 0;
     auxSuma = 0;
     historialPantalla.value = null;
+    historialOperaciones.value = null;
 
 });
 
@@ -197,8 +199,13 @@ teclaIgual.addEventListener("click", function() {
     if (auxDividir == 1) {
         segundoDigito = pantallaCalculadora.value;
         resultado = primerDigito / segundoDigito;
+        if (segundoDigito == 0) {
+            resultado = "Error";
+        }
         pantallaCalculadora.value = resultado;
         auxDividir = 0;
+        operacionHecha = 1;
+        historialOperaciones.value = historialOperaciones.value + " " + primerDigito + " / " + segundoDigito + " , ";
 
     }
     if (auxMultiplicar == 1) {
@@ -208,6 +215,7 @@ teclaIgual.addEventListener("click", function() {
         auxMultiplicar = 0;
         operacionHecha = 1;
         console.log(operacionHecha);
+        historialOperaciones.value = historialOperaciones.value + " " + primerDigito + " * " + segundoDigito + " , ";
     }
 
     if (auxSuma == 1) {
@@ -217,6 +225,7 @@ teclaIgual.addEventListener("click", function() {
         auxSuma = 0;
         operacionHecha = 1;
         console.log(operacionHecha);
+        historialOperaciones.value = historialOperaciones.value + " " + primerDigito + " + " + segundoDigito + " , ";
     }
 
     if (auxResta == 1) {
@@ -226,6 +235,7 @@ teclaIgual.addEventListener("click", function() {
         auxResta = 0;
         operacionHecha = 1;
         console.log(operacionHecha);
+        historialOperaciones.value = historialOperaciones.value + " " + primerDigito + " - " + segundoDigito + " , ";
     }
 
     historialPantalla.value = historialPantalla.value + resultado + ", ";

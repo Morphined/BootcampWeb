@@ -5,6 +5,8 @@ var botonCambioMayus = document.getElementById("botonCambioMayus");
 var reiniciarCampos = document.getElementById("reiniciar");
 var textoMayus = document.getElementById("mayus");
 var textoMinus = document.getElementById("minus");
+var botonCalcularCar = document.getElementById("botonCalcularCar");
+var textoCar = document.getElementById("cantidadCar");
 
 
 botonCambioMayusMinus.addEventListener("click", function() {
@@ -28,4 +30,13 @@ reiniciarCampos.addEventListener("click", function() {
     cadenaCambio.value = null;
     textoMayus.value = null;
     textoMinus.value = null;
+    textoCar.value = null;
+});
+
+botonCalcularCar.addEventListener("click", function() {
+
+    var cadena = cadenaCambio.value;
+    var caracteres = cadena.length;
+    textoCar.value = caracteres;
+
 });

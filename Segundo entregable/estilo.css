@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    background-color: lightgray;
+    background-color: #20dbd8;
 }
 
 *,
@@ -12,7 +12,7 @@ html {
 }
 
 .calculator {
-    border: 1px solid #ccc;
+    border: 1px solid #1d58bf;
     border-radius: 5px;
     position: absolute;
     top: 50%;
@@ -27,7 +27,7 @@ html {
     height: 80px;
     border: none;
     background-color: #252525;
-    color: #fff;
+    color: #20dbd8;
     text-align: right;
     padding-right: 20px;
     padding-left: 10px;
@@ -41,7 +41,7 @@ button {
 .equal-sign {
     height: 98%;
     grid-area: 2 / 4 / 6 / 5;
-    background-color: #fff;
+    background-color: #209dd8;
 }
 
 .teclas-calculadora {
@@ -49,11 +49,11 @@ button {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     padding: 20px;
-    background-color: steelblue;
+    background-color: #eaca4b;
 }
 
 label {
-    background-color: dimgrey;
+    background-color: #eee06f;
     font-size: 25px;
     text-align: center;
     font-style: italic;
@@ -61,7 +61,7 @@ label {
 }
 
 input {
-    background-color: dimgrey;
+    background-color: #eee06f;
     padding-bottom: 15px;
     font-weight: bolder;
     color: black;
